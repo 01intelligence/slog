@@ -2818,6 +2818,10 @@ pub trait SerdeValue: erased_serde::Serialize + Value {
     ///
     /// This enables functionality like `slog-async` and similar.
     fn to_sendable(&self) -> Box<SerdeValue + Send + 'static>;
+
+    fn as_any(&self) -> &dyn std::any::Any {
+        panic!("not implemented");
+    }
 }
 
 // }}}
